@@ -1,0 +1,25 @@
+Pre-Requisites
+
+1.Docker Installed
+
+@@@Downloading the server image.
+
+1.docker pull mysql/mysql-server
+
+2.docker images
+     
+@@@starting MySql Instance
+
+1.docker run --name=mysql1 -d mysql/mysql-server
+
+2.shell> docker ps
+
+@@@Once initialization is finished, the command's output is going to contain the random password generated for the root user
+
+3.docker logs mysql1 2>&1 | grep GENERATED
+
+@@@Stopping and Deleting a MySQL Container
+
+docker stop mysql1
+
+docker rm mysql1

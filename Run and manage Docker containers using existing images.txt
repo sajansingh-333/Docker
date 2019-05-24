@@ -1,0 +1,43 @@
+Pre-requisites
+
+1.docker pull ubuntu
+
+@@@Step 1: Creating Container
+
+@@@-t will give us a terminal, and -i will allow us to interact with it
+
+2.docker run -ti ubuntu
+
+@@@We'll make a change by echoing some text into the container's /tmp directory, then use cat to verify that it was successfully saved
+
+3.echo "Example1" > /tmp/Example1.txt
+
+4.cat /tmp/Example1.txt
+
+5.exit
+
+@@@Docker containers stop running as soon as the command they issued is complete
+
+docker ps
+
+@@@the -a flag, which shows all containers, stopped or running
+
+6.docker ps -a
+
+@@@If we re-run the same command, an entirely new container is created
+
+
+7.docker run -ti ubuntu
+
+8.exit
+
+@@@Restarting the Container
+
+9.docker start -ai "container Id"
+
+10.exit
+
+@@@deleting container
+
+11.docker rm "container ID"
+

@@ -1,0 +1,27 @@
+Pushing Images to Docker Hub -
+
+@@update the packages-
+ 
+sudo su
+apt-get update
+
+@@check for the images present in Local 
+docker images
+
+@@Basically, it contains namespace/name of the repository where images available. Our images are currently tagged as web. We need to re-tag these images. So execute the below command to re-tag the images.
+
+docker tag ubuntu:latest gurpreet999/ubuntu:latest
+
+@@@LOGGING INTO DOCKER HUB
+
+docker login
+
+@@@push the images to docker hub
+
+docker push gurpreet999/ubuntu:latest
+
+@@@check the docker repository
+
+
+
+

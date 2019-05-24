@@ -1,0 +1,27 @@
+@@@Commands for working with containers
+
+@@@This command will show the top-level processes within a container.
+
+docker top ContainerID
+ 
+@@@This command is used to delete a container.
+
+docker rm ContainerID
+
+@@@This command is used to provide the statistics of a running container.
+
+docker stats ContainerID 
+
+@@@This command Creates a new image from a container’s changes
+
+docker commit ContainerID
+
+
+@@@Block until one or more containers stop, then print their exit codes
+
+docker container wait ContainerID
+
+@@@To list all container commands with their functionality
+
+docker container
+

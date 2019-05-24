@@ -1,0 +1,40 @@
+sudo snap install docker
+
+sudo su
+
+cd ~
+
+git clone https://github.com/docker/docker-bench-security.git
+
+cd docker-bench-security
+
+
+./docker-bench-security.sh
+
+@@@Correcting Docker Daemon Configuration Warnings
+
+sudo nano /etc/docker/daemon.json
+
+***
+{
+    "icc": false,
+    "userns-remap": "default",
+    "log-driver": "syslog",
+    "disable-legacy-registry": true,
+    "live-restore": true,
+    "userland-proxy": false,
+    "no-new-privileges": true
+}
+
+***
+
+sudo systemctl restart docker
+
+@@@The configuration variables we’ve inserted into this file are arranged in the same order as the audit warnings.
+
+@@@Content trust is a system for signing Docker images and verifying their signatures before running them. We can enable content trust with the DOCKER_CONTENT_TRUST environment variable.
+
+export DOCKER_CONTENT_TRUST=1
+
+echo "DOCKER_CONTENT_TRUST=1" | sudo tee -a /etc/environment
+

@@ -1,0 +1,44 @@
+@@@create a docker-registry directory, move into it, and then create a data subfolder with the following commands:
+
+
+mkdir ~/docker-registry && cd $_
+
+mkdir data
+
+@@@Use your text editor to create the docker-compose.yml configuration file:
+
+nano docker-compose.yml
+
+***
+version: '3'
+
+services:
+  registry:
+    image: registry:2
+    ports:
+    - "5000:5000"
+    environment:
+      REGISTRY_STORAGE_FILESYSTEM_ROOTDIRECTORY: /data
+    volumes:
+      - ./data:/data
+***
+@@@install docker compose
+
+apt  install docker-compose
+
+@@@You can now start Docker Compose to check the setup:
+
+docker-compose up
+
+@@@Starting Docker Registry as a Service
+
+nano docker-compose.yml
+
+***
+registry:
+    restart: always
+***
+@@@You can start your registry as a background process, which will allow you to exit the ssh session and persist the process:
+
+docker-compose up -d
+

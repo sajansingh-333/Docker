@@ -1,0 +1,54 @@
+@@deploy Java application using docker
+
+@@Create a basic.java file, HelloWorld.java
+
+vi HelloWorld.java
+
+@@put the following content in the file
+
+public class HelloWorld {
+  public static void main(String[] args){
+    System.out.println("Hello World :) ");
+  }
+}
+
+
+@@Install Java Packages
+
+apt install default-jdk
+
+@@run the command 
+
+javac HelloWorld.java
+
+@@after the execution of above command we'll get HelloWorld.class file
+
+@@create a file manifest.txt
+
+
+Manifest-Version: 1.0
+Created-By: Me
+Main-Class: HelloWorld
+
+
+@@run the following command
+
+jar cfm HelloWorld.jar manifest.txt HelloWorld.class 
+
+java -jar HelloWorld.jar 
+@@create a Dockerfile
+
+vi Dockerfile
+
+@@paste the following content
+
+
+FROM java:8
+WORKDIR /
+ADD HelloWorld.jar HelloWorld.jar
+EXPOSE 8080
+CMD java - jar HelloWorld.jar
+
+@@Build the docker file.
+
+docker build -t helloworld .

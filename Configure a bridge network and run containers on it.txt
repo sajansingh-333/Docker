@@ -1,0 +1,48 @@
+@@@Use Bridge Networks and run container on it
+
+@@@Manage a user-defined bridge
+
+docker network create my-net
+
+@@@Connect a container to a user-defined bridge
+
+docker create --name my-nginx \
+  --network my-net \
+  --publish 8080:80 \
+  nginx:latest
+
+@@@To connect a running container to an existing user-defined bridge
+
+docker network connect my-net my-nginx
+
+@@@Disconnect a container from a user-defined bridge
+
+docker network disconnect my-net my-nginx
+
+@@@Enable forwarding from Docker containers to the outside world
+
+@@@Configure the Linux kernel to allow IP forwarding.
+
+
+sysctl net.ipv4.conf.all.forwarding=1
+
+sudo iptables -P FORWARD ACCEPT
+
+@@@Configure the default bridge network
+
+vi daemon.json
+
+***
+{
+  "bip": "192.168.1.5/24",
+  "fixed-cidr": "192.168.1.5/25",
+  "fixed-cidr-v6": "2001:db8::/64",
+  "mtu": 1500,
+  "default-gateway": "10.20.1.1",
+  "default-gateway-v6": "2001:db8:abcd::89",
+  "dns": ["10.20.1.2","10.20.1.3"]
+}
+***
+@@@Restart Docker for the changes to take effect.
+
+systemctl restart docker

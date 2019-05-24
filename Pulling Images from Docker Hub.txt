@@ -1,0 +1,24 @@
+@@@Pulling Images from DockerHub -
+
+@@@login to docker hub account
+
+docker login
+
+@@@To pull the images, use the below command.
+
+@@@docker pull <namespace name>/<repository name>:<tag>
+
+docker pull gurpreet999/ubuntu:latest
+
+@@@Run the container image
+
+docker run ubuntu
+
+
+
+
+
+
+
+
+

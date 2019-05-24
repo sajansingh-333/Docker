@@ -1,0 +1,25 @@
+@@@Create a simple container:
+
+docker run -it -d  --name my_container  busybox
+
+@@@test if you can ping Google:
+
+docker exec -it my_container ping -w3 google.com  
+
+@@@inspect the container
+
+docker inspect my_container
+
+@@@Check the IP address
+
+ping "IP"
+
+@@@create the web server container, forward the port host port 8080 to the container port 80 and test how it responds
+
+docker run -d -p 8080:80 --name my_web_server nginx
+
+@@@Nginx should reply if your port 8080 is not used by other applications
+
+curl http://0.0.0.0:8080
+
+@@@In a single host, containers are able to see each other, to see the external world (if they are not running in isolated networks) and they can receive traffic from an external network.

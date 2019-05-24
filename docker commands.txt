@@ -1,0 +1,14 @@
+Commands-
+
+docker version
+docker run hello-world
+docker run busybox ls
+docker run busybox ping google.com
+docker ps --all
+docker start -a "container ID"  (-a watches the output)
+docker stop "container ID"  (10 seconds shutdown Period)
+docker kill "container ID
+
+docker system prune
+
+
