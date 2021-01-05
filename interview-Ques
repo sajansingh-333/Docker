@@ -173,7 +173,7 @@ docker-compose -f docker-compose.json up
 Should I include my code with COPY/ADD or a volume?
 OR
 What is the difference between ADD and COPY in Dockerfile?
-
+copy command in docker is used for copying the local files but when it comes to copying objects from remote servers , urls we have to use ADD command in docker
 How do you save Docker Image?
 Docker save -o image.tar.gz  container-tag
 Docker load 
