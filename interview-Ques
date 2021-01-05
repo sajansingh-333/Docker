@@ -1,3 +1,80 @@
+Tell us something about Docker Compose.
+contains details about the services, networks, and volumes for setting up the Docker application
+What is Docker Swarm?
+Docker swarm init
+What is a Docker Namespace?
+What is the lifecycle of a Docker Container?
+* Create a container
+* Run the container
+* Pause the container(optional)
+* Un-pause the container(optional)
+* Start the container
+* Stop the container
+* Restart the container
+* Kill the container
+* Destroy the container
+
+
+What is Docker Machine?
+
+How to check for Docker Client and Docker Server version?
+docker version
+
+How do you get the number of containers running, paused and stopped?
+docker info
+
+How to get help about any docker command?
+docker  command --help
+
+How to login into docker repository?
+docker login
+
+How do you create a docker container from an image?
+docker run -it -d image_name
+
+How do you list all the running containers?
+docker ps
+
+Suppose you have 3 containers running and out of these, you wish to access one of them. How do you access a running container?
+docker exec -it container id bash
+
+How to start, stop and kill a container?
+docker start container_id
+docker stop container_id
+docker kill container_id
+
+how do you push it to docker hub?
+docker push username/image name
+
+How to delete a stopped container?
+docker rm  container id
+
+How to delete an image from the local storage system?
+docker rmi  image-id
+
+How to build an image from Dockerfile? 
+docker build .
+
+Do you know why docker system prune is used? What does it do?
+docker system prune is used to remove all stopped containers.
+
+Will you lose your data, when a docker container exists?
+No
+
+Is there a way to identify the status of a Docker container?
+docker ps -a
+
+Can a container restart by itself?
+By default the flag -restart is set to false.
+
+Is it better to directly remove the container using the rm command or stop the container followed by remove container?
+
+Is it a good practice to run stateful applications on Docker?
+
+state-full vs stateless application
+A stateless app is an application program that does not save client data generated in one session for use in the next session with that client.
+
+
 Docker Interview Question.Part-3
 1- What is a Docker Registry?
 Docker Cloud and Docker Hub are the public registries where these images can be hosted upon.
@@ -67,3 +144,40 @@ USER instruction is used to set the username, group name, UID and GID for runnin
 ENV APP_DIR /data/
 ARG TMP_NAME mycustom_image
 ONBUILD RUN yum install httpd
+
+What is Docker?
+What is the advantage of Docker over hypervisors?
+What is Docker Image?
+What is Docker Container?
+What is Docker hub?
+How to create a Docker container?
+docker run -t -i image
+How many containers can run per host?
+Is Container technology new?
+What are the networks that are available by default?
+Difference between Docker Image and container?
+
+Docker container is the runtime instance of the docker image.
+
+Docker Image does not have a state, and its state never changes as it is just a set of files whereas docker container has its execution state.
+
+What is difference b/w docker and VM?
+Why do my services take 10 seconds to recreate or stop?
+
+How do I run multiple copies of a Compose file on the same host?
+custom project name using the -p command-line option or the COMPOSE_PROJECT_NAME environment variable.
+
+Can I use JSON instead of YAML for my Compose file?
+docker-compose -f docker-compose.json up
+
+Should I include my code with COPY/ADD or a volume?
+OR
+What is the difference between ADD and COPY in Dockerfile?
+
+How do you save Docker Image?
+Docker save -o image.tar.gz  container-tag
+Docker load 
+
+
+
+
