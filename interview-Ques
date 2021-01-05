@@ -1,0 +1,69 @@
+Docker Interview Question.Part-3
+1- What is a Docker Registry?
+Docker Cloud and Docker Hub are the public registries where these images can be hosted upon.
+Docker Data Centre (DDC) can also be used which includes DTR (Docker Trusted Registry).
+
+2- What are the Docker Objects?
+Docker Objects are Docker Images, Services, and Docker Containers
+
+3- Can you tell the reasons why Container Networking is so important?
+* Containers need to talk to the external world. 
+* Reach Containers from the external world to use the service that Containers provide. 
+* Allows Containers to talk to the host machine. 
+* Inter-container connectivity in the same host and across hosts. 
+* Discover services provided by containers automatically. 
+* Load balance traffic between different containers in a service.
+* Provide secure multi-tenant services.
+
+4- How to create a user-defined Bridge network?
+#docker network create your_nw_name
+
+5- How is overlay network different from bridge network?
+Bridgeworks on single host overlay support among multiple servers connectivity.
+
+6- What networks are affected when you join a Docker host to an existing Swarm?
+
+7- How shall you disable the networking stack on a container?
+#docker run -it --network none alpine sh
+
+8-How to check details of a network in a docker container?
+#docker inspect container_ID
+
+
+9- What is Docker Swarm?
+Docker Swarm is native clustering for Docker and it turns a pool of Docker hosts into a single, virtual Docker host. 
+
+10- Can you explain different volume mount types available in Docker?
+Volumes are stored in a part of the host filesystem which is managed by Docker (/var/lib/docker/volumes/ on Linux
+Bind mounts may be stored anywhere on the host system
+tmpfs mounts are stored in the host system’s memory only and are never written to the host system’s filesystem.
+
+11- What is the role of .dockerignore file?
+
+12- What is the purpose of EXPOSE command in Dockerfile?
+This is used for port mapping between docker host and docker container.
+
+13- How is ENTRYPOINT instruction under Dockerfile different from CMD instruction?
+
+
+14- Why Build cache in Docker is so important?
+If objects are not changed between two builds of a docker container image, docker can use build cache with becomes time-saver at the time of building the image.
+
+15- What are the most common instructions in Dockerfile?
+FROM alpine
+MAINTAINER Server Ryan
+LABEL: "Application_Environment"="Development"
+RUN yum update && yum -y install httpd
+RUN mkdir -p /data/servergyan
+WORKDIR /data/myscript
+CMD python app.py
+EXPOSE 80 443
+EXPOSE 80/tcp 8080/udp
+ADD /root/testfile /data/
+COPY . .
+ENTRYPOINT ping google.com
+VOLUME /appdata:/appdata
+USER instruction is used to set the username, group name, UID and GID for running subsequent commands. Else the root user will be used.
+ENV APP_DIR /data/
+ARG TMP_NAME mycustom_image
+ONBUILD RUN yum install httpd
