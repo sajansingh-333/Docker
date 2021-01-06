@@ -146,8 +146,12 @@ ARG TMP_NAME mycustom_image
 ONBUILD RUN yum install httpd
 
 What is Docker?
+is a mechanism to create containers ,on bare metal u can install docker engine and u can utilise the containers , launch the applications in the isolated environment containers
+*******no need to install a host OS , hypervisor, guest OS for application to run ****
 What is the advantage of Docker over hypervisors?
+for hypervisor we need to install a seperate Guest OS to operate called Vms for docker we can directly launch the docker daemon on bare metal 
 What is Docker Image?
+
 What is Docker Container?
 What is Docker hub?
 How to create a Docker container?
