@@ -1,14 +1,36 @@
 Commands-
 
 docker version
+docker pull < imageID or ImageName >
+docker push <reponame/imagename>
+docker tag SOURCE_IMAGE[:TAG] TARGET_IMAGE[:TAG]
+
+
 docker run hello-world
+docker run -p 8686:8686 --name<>
 docker run busybox ls
 docker run busybox ping google.com
+
+docker rename CONTAINER_name NEW_NAME
+$ docker rename my_container my_new_container
+
+
+ docker build .
+ 
+docker build -f ctx/Dockerfile http://server/ctx.tar.gz  
+
+(This sends the URL http://server/ctx.tar.gz to the Docker daemon, which downloads and extracts the referenced tarball. The -f ctx/Dockerfile parameter specifies a path inside ctx.tar.gz to the Dockerfile that is used to build the image. Any ADD commands in that Dockerfile that refers to local paths must be relative to the root of the contents inside ctx.tar.gz. In the example above, the tarball contains a directory ctx/, so the ADD ctx/container.cfg / operation works as expected.)
+
+docker build -t whenry/fedora-jboss:latest -t whenry/fedora-jboss:v2.1 .
+
+
 docker ps --all
-docker start -a "container ID"  (-a watches the output)
-docker stop "container ID"  (10 seconds shutdown Period)
-docker kill "container ID
+docker start -a <container ID>  (-a watches the output)
+docker stop <containerID>  (10 seconds shutdown Period)
+docker kill <container ID>
 
 docker system prune
+docker network ls
+docker create <network name>
 
-
+#when ever u try to build a same image or rebuild the image we need to make changes at path of image i.e., we cannot make changes into an image if once created 
