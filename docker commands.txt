@@ -34,7 +34,7 @@ docker start -a <container ID>  (-a watches the output)
 docker stop <containerID>  (10 seconds shutdown Period)
 docker kill <container ID>
 
-docker system prune
+docker system prune (to clean docker host i.e., to delete the stopped containers, dangling images and unused networks and dangling build cache)
 docker network ls
 docker create <network name>
 
