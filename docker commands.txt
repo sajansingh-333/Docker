@@ -38,4 +38,4 @@ docker system prune
 docker network ls
 docker create <network name>
 
-#when ever u try to build a same image or rebuild the image we need to make changes at path of image i.e., we cannot make changes into an image if once created 
+#when ever u try to build a same image or rebuild the image with same name we need to make changes at path of image i.e., we cannot make changes into an image if once created 
