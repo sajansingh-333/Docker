@@ -25,6 +25,11 @@ docker build -t whenry/fedora-jboss:latest -t whenry/fedora-jboss:v2.1 .
 
 
 docker ps --all
+-f is used for filtering here
+docker ps -a -f status=running
+docker ps -a -f status=exited 
+docker ps -a -f status=created
+docker rm $(docker ps -a -f status=exited -q)  (removes all the exited containers)
 docker start -a <container ID>  (-a watches the output)
 docker stop <containerID>  (10 seconds shutdown Period)
 docker kill <container ID>
