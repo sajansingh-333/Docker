@@ -1,0 +1,9 @@
+docker on Amazon linux
+sudo yum update -y
+sudo yum install docker -y
+service start docker
+service status docker
+docker --version
+sudo usermod -aG docker ec2-user
+docker pull ubuntu
+docker run -it ubuntu
